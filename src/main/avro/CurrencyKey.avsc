@@ -1,0 +1,12 @@
+{
+  "connect.name": "com.fnz.debezium.schema.CurrencyKey",
+  "fields": [
+    {
+      "name": "CURRENCY_CODE",
+      "type": "string"
+    }
+  ],
+  "name": "CurrencyKey",
+  "namespace": "com.fnz.debezium.schema",
+  "type": "record"
+}

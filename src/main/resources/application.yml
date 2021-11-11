@@ -1,0 +1,30 @@
+micronaut:
+  application:
+    name: demo
+datasources:
+  default:
+    url: jdbc:postgresql://localhost:5432/postgres
+    driverClassName: org.postgresql.Driver
+    username: postgres
+    password: 'kafkapostsink12'
+#jpa.default.properties.hibernate.hbm2ddl.auto: update
+kafka:
+  embedded.enabled: true
+  transactional.id: figaro-valuation
+  bootstrap:
+    servers: localhost:9092
+  producers:
+    currency:
+      schema.registry.url: mock://localhost:1234
+      transactional.id: currency-tx
+      key.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+      value.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+  consumers:
+    default:
+      specific.avro.reader: true
+      schema.registry.url: mock://msschema-registry:8081
+      key.deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      value.deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      auto.commit.enable: false
+  topic:
+    Currency: com.fnz.topic.currency

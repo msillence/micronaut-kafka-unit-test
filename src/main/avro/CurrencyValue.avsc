@@ -1,0 +1,31 @@
+{
+  "connect.name": "com.fnz.debezium.schema.CurrencyValue",
+  "fields": [
+    {
+      "name": "CURRENCY_CODE",
+      "type": "string"
+    },
+    {
+      "name": "CURRENCY_DESCRIPTION",
+      "type": "string"
+    },
+    {
+      "name": "EXCHANGE_RATE",
+      "type": {
+        "connect.name": "org.apache.kafka.connect.data.Decimal",
+        "connect.parameters": {
+          "connect.decimal.precision": "16",
+          "scale": "6"
+        },
+        "connect.version": 1,
+        "logicalType": "decimal",
+        "precision": 16,
+        "scale": 6,
+        "type": "bytes"
+      }
+    }
+  ],
+  "name": "CurrencyValue",
+  "namespace": "com.fnz.debezium.schema",
+  "type": "record"
+}
