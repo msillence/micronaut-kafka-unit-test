@@ -9,10 +9,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import io.micronaut.context.annotation.Requires;
+import io.micronaut.core.util.StringUtils;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 
-@MicronautTest//(environments = "kafka") - this doesn't make any difference
-@Requires(property = "foo.bar", value = "stuff") // this makes the tests pass
+@MicronautTest//(environments = "kafka") // - this doesn't make any difference
+//@Requires(property = "foo.bar", value = "stuff") // this makes the tests pass
+//@Requires(property = "kafka.embedded.enabled", value = StringUtils.TRUE) // tests still fail
 public class CurrencySenderTest {
 	private static Logger clog = LoggerFactory.getLogger("container.kafka");
 	private static Logger log = LoggerFactory.getLogger(CurrencySenderTest.class);

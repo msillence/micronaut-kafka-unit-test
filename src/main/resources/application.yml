@@ -9,7 +9,6 @@ datasources:
     password: 'kafkapostsink12'
 #jpa.default.properties.hibernate.hbm2ddl.auto: update
 kafka:
-  embedded.enabled: true
   transactional.id: figaro-valuation
   bootstrap:
     servers: localhost:9092

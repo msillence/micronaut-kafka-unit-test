@@ -20,7 +20,6 @@ import io.micronaut.configuration.kafka.annotation.KafkaClient;
 import io.micronaut.context.annotation.Value;
 
 @Singleton
-@KafkaClient
 public class CurrencySender {
 	private static Logger log = LoggerFactory.getLogger(CurrencySender.class);
 
